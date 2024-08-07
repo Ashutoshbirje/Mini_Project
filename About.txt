@@ -17,9 +17,9 @@ What we are going to implement:
    - Emergency indicators and precautionary measures
 
 3. Secure Medical Data Storage:
-- Implement robust authentication system for user access.
-- Generate unique MedicalID for each user to access their data
-- Ensure data privacy and controlled access to sensitive health information
+   - Implement robust authentication system for user access.
+   - Generate unique MedicalID for each user to access their data
+   - Ensure data privacy and controlled access to sensitive health information
 
 4. Virtual Health Assistant:
    - 24/7 AI chatbot for health-related queries
@@ -45,18 +45,18 @@ What we are going to implement:
    - User feedback mechanisms for improvement
 
 10. Telemedicine Integration:
-- Virtual doctor consultations
-- Secure video calling and messaging using WebRTC
+   - Virtual doctor consultations
+   - Secure video calling and messaging using WebRTC
 
 11. Exercise Analysis:
-    - Analyze movements for correct exercise performance
-    - Provide real-time or post-exercise feedback
+   - Analyze movements for correct exercise performance
+   - Provide real-time or post-exercise feedback
 
 Technology:
-1. Frontend: React.js
-2. Backend: Node.js, Express.js
-3. Database: MongoDB
-4. AI/ML: Python, TensorFlow, Computer vision 
-5. Real-time Communication: WebSocket, WebRTC
-6. Authentication: JWT
-7. Version Control: Git
+   1. Frontend: React.js
+   2. Backend: Node.js, Express.js
+   3. Database: MongoDB
+   4. AI/ML: Python, TensorFlow, Computer vision 
+   5. Real-time Communication: WebSocket, WebRTC
+   6. Authentication: JWT
+   7. Version Control: Git
