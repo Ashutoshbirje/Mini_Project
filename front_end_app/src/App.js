@@ -1,11 +1,21 @@
 import './App.css';
-
+import Navbar from './Component/Navbar';
+import HeroSection from './Component/HeroSection';
+import Footer from './Component/footer/Footer';
+import TestimonialCarousel from './Component/TestimonialCarousel/TestimonialCarousel';
+import SearchBar from './Component/Search/SearchBar';
+import ServiceSection from './Component/Help/ServiceSection';
+import Notice from './Component/Notice/Notice';
 function App() {
   return(
     <div className="App">
-       <h1>
-        Create Your Project Here ... !
-       </h1>
+      <Navbar />
+      <HeroSection />
+      <ServiceSection />
+      <SearchBar />
+      <TestimonialCarousel />
+      <Notice/>
+      <Footer />
     </div>
   );
 }
