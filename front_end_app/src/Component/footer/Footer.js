@@ -3,7 +3,7 @@ import Company from './Company';
 import QuickLinks from './QuickLinks';
 import Help from './Help';
 import './Footer.css'
-import Logo from '../Logo.js';
+import Logo from '../Navigation/Logo';
 
 const Footer = () => {
   return (

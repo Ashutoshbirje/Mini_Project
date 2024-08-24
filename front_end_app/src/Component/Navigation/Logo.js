@@ -1,6 +1,5 @@
 import React from 'react';
-import logo from '../images/Logo192.png'; // Path to your logo image
-
+import logo from '../../images/Logo192.png'; // Path to your logo image
 const Logo = () => {
   return (
     <div className="logo">

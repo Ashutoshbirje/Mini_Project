@@ -1,6 +1,6 @@
 import './App.css';
-import Navbar from './Component/Navbar';
-import HeroSection from './Component/HeroSection';
+import Navbar from './Component/Navigation/Navbar';
+import HeroSection from './Component/Home/HeroSection';
 import Footer from './Component/footer/Footer';
 import TestimonialCarousel from './Component/TestimonialCarousel/TestimonialCarousel';
 import SearchBar from './Component/Search/SearchBar';
