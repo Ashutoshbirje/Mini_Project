@@ -1,18 +1,14 @@
 .hero-section {
   padding: 40px 40px 0px 40px;
-  background-color: #0a1931;
-  color: white;
-  height: 100vh;
+  background-color: #f9f9f9;
+  height: 80vh;
 }
 
 .hero-section1 {
-  color: white;
   display: flex;
   justify-content: space-between;
   align-items: start;
   margin: 0px 85px;
-  background-color: #0a1931;
-  color: white;
 }
 
 .hero-content {
@@ -26,6 +22,7 @@
   color: white;
   font-size: 15px;
   width: 100%;
+  color: #666869;
 }
 
 .hero-part_A h1 {
@@ -48,6 +45,7 @@
 }
 
 .hero-part_B > p{
+  font-size: 18px;
   padding-right: 100px;
   text-align:left;
 }
@@ -58,24 +56,31 @@
 
 .get-started-btn,
 .get-appoint-btn {
-  background-color: transparent;
-  border: 2px solid white;
-  color: white;
+  border: 2px solid #a0bcea;
+  color: #00A6ED;
   padding: 10px 20px;
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
   font-size: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
 }
 
 .get-started-btn {
-  background-color: white;
-  color: #0a1931;
+  background-color: #00A6ED;
+  color: white
 }
 
 .get-started-btn:hover,
 .get-appoint-btn:hover {
   opacity: 0.8;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+  color: rgb(49, 49, 49);
+}
+
+.hero-image{
+  padding-top:80px;
 }
 .hero-image img {
   border-radius: 5px;
