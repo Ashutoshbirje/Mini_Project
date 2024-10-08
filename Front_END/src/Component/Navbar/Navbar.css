@@ -59,27 +59,36 @@
     color: #00A6ED; /* Light Blue */
   }
   
-  .dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    list-style: none;
-    padding: 10px;
-    border-radius: 5px;
-    width:200px;
-  }
+/* Dropdown menu container */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  list-style: none;
+  padding: 10px;
+  border-radius: 5px;
+  width: 200px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+}
+
+.dropdown-menu li {
+  margin-bottom: 10px;
+  color: #857b7b; /* Light shade of black */
+  font-size: 14px;
+}
+
+.dropdown-menu li:hover {
+  color: #6f6c6c; /* Darker on hover */
+  cursor: pointer;
+}
+
   
   .navbar-item:hover .dropdown-menu {
     display: block;
   }
-  
-  .dropdown-menu li {
-    margin-bottom: 10px;
-    color: black;
-  }
-  
+
   .navbar-right {
     display: flex;
   }

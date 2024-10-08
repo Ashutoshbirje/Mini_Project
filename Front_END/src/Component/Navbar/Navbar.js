@@ -47,15 +47,15 @@ const Navbar = () => {
                 <Link to="/#">Services</Link>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link to="/services/symptom-checker">Symptom Checker</Link>
+                    <Link to="/services/symptom-checker" style={{ color: '#857b7b' }}>Symptom Checker</Link>
                   </li>
                   <li>
-                    <Link to="/services/virtual-assistant">
+                    <Link to="/services/virtual-assistant" style={{ color: '#857b7b' }}>
                       Virtual Assistant
                     </Link>
                   </li>
                   <li>
-                    <Link to="/services/personalized-advice">
+                    <Link to="/services/personalized-advice" style={{ color: '#857b7b' }}>
                       Personalized Advice
                     </Link>
                   </li>
