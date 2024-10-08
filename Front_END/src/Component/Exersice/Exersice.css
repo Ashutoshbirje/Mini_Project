@@ -10,7 +10,6 @@
   .yoga-container {
     display: flex;
     justify-content: space-between;
-    /* width: 100%; Reduced width for better centering */
     gap:10px;
     padding: 10px; /* Added padding inside the container */
     background-color: #f3f3f3;
