@@ -4,7 +4,7 @@
     top: 0; /* Sticks it to the top */
     left: 0; /* Sticks it to the left */
     width: 100%; /* Takes full width */
-    height: 100px;
+    height: 90px;
     z-index: 1000; /* Ensures it stays above other elements */
     background-color: white; /* Background color */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
@@ -15,7 +15,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin:0px 150px;
+    margin: 0px 105px;
+    margin-top: 10px;
   }
 
   .navbar-left {
@@ -86,7 +87,7 @@
   .login-btn,
   .signup-btn {
     background-color: transparent;
-    color: white;
+    color: black;
     padding: 5px 15px;
     border-radius: 5px;
     margin-left: 10px;
@@ -98,6 +99,7 @@
   }
   
   .signup-btn {
+    color: white;
     background-color: #00A6ED;
   }
   

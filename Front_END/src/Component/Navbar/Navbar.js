@@ -44,7 +44,7 @@ const Navbar = () => {
                 <a href="/#">About</a>
               </li>
               <li className="navbar-item dropdown">
-                <Link to="/services">Services</Link>
+                <Link to="/#">Services</Link>
                 <ul className="dropdown-menu">
                   <li>
                     <Link to="/services/symptom-checker">Symptom Checker</Link>
