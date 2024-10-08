@@ -116,7 +116,9 @@
   .signup-btn:hover {
     opacity: 0.8;
   }
-
+  .login-btn:hover{
+    color: white;
+  }
   /* Modal Styles */
 .modal {
   position: fixed;
