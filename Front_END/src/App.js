@@ -8,6 +8,7 @@ import Home from './Component/Home/Home';
 import Check from './Component/Services/SymptomChecker/Check';
 import Chatbot from './Component/Services/SymptomChecker/Check';
 import Call from './Component/Services/SymptomChecker/Check';
+import HelpGuide from './Component/Exersice/Help-Guide/HelpGuide';
 import GetStarted from "./Component/GetStarted/GetStarted";
 import GetAppoint from "./Component/GetAppoint/GetAppoint"; 
 import Exercise from "./Component/Exersice/Exersice";
@@ -27,6 +28,7 @@ function App() {
           <Route path="/services/virtual-assistant" element={<Chatbot/>} />
           <Route path="/services/personalized-advice" element={<Call />} /> 
           <Route path="/Exercise" element={<Exercise />} /> 
+          <Route path="/Exercise/Help" element={<HelpGuide />} /> 
         </Routes>
       </div>
     </Router>

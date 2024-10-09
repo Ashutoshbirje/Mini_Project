@@ -1,0 +1,64 @@
+.help-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  height: 80vh;
+}
+
+.help-box {
+  margin-top: 20px;
+  width: 400px;
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.help-box:hover {
+  transform: scale(1.02);
+}
+
+.page {
+  text-align: center;
+}
+
+.page h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.page p {
+  color: #555;
+}
+
+.navigation-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigation-buttons button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navigation-buttons button:hover {
+  background-color: #218838;
+}
+
+/* Style for back button */
+.back-button {
+  background-color: #dc3545;
+}
+
+.back-button:hover {
+  background-color: #c82333;
+}

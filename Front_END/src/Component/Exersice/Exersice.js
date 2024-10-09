@@ -1,6 +1,7 @@
 import * as poseDetection from '@tensorflow-models/pose-detection';
 import * as tf from '@tensorflow/tfjs';
 import React, { useRef, useState, useEffect } from 'react';
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import Webcam from 'react-webcam';
 import { count } from '../../utils/music';
 import Instructions from '../Instrctions/Instructions';
@@ -208,7 +209,11 @@ function Exersice() {
               setCurrentPose={setCurrentPose}
             />
             <button className="secondary-btn">Start Pose</button>
-            <button className="secondary-btn">Help</button>
+            <button className="secondary-btn">
+            <Link to="/Exercise/Help" style={{ width: '110%', display: 'block' }}>
+            Help
+            </Link>
+            </button>
             <button onClick={stopPose} className="secondary-btn stop-btn">Stop Pose</button>
             <button className="secondary-btn data-btn">Pose Time: {poseTime} s</button>
             <button className="secondary-btn data-btn">Best Time: {bestPerform} s</button>
@@ -238,7 +243,10 @@ function Exersice() {
             setCurrentPose={setCurrentPose}
           />
           <button onClick={startYoga} className="secondary-btn">Start Pose</button>
+          
+          <Link to="/Exercise/Help" style={{ color: 'white', textDecoration: 'none' }}>
           <button className="secondary-btn">Help</button>
+          </Link>
         </div>
       </div>
     </div>
