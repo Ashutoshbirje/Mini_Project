@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './Component//Navbar/Navbar';
+import Login from "./Component/Login/Login"; // Import the Login component
+import Signup from "./Component/SignUp/SignUp"; // Import the Signup component
 import Home from './Component/Home/Home';
 import Check from './Component/Services/SymptomChecker/Check';
 import Chatbot from './Component/Services/SymptomChecker/Check';
@@ -17,6 +19,8 @@ function App() {
         <Navbar/>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} /> {/* Route for login */}
+          <Route path="/signup" element={<Signup />} /> {/* Route for signup */}
           <Route path="/get-started" element={<GetStarted />} />
           <Route path="/get-appoint" element={<GetAppoint />} />
           <Route path="/services/symptom-checker" element={<Check />} />

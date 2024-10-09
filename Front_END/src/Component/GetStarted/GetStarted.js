@@ -8,17 +8,17 @@ const GetStarted = () => {
         {
             icon: faKitMedical, 
             title: "First Aid",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris"
+            description: "Knowledge empowers, saves lives."
         },
         {
             icon: faPhone, 
             title: "Contact",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris"
+            description: "Stay connected, stay informed."
         },
         {
             icon: faShoppingCart, 
             title: "Medical",
-            description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris"
+            description: "Medicine heals, compassion comforts."
         }
     ];
 
