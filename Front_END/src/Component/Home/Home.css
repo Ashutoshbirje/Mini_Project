@@ -38,6 +38,10 @@
   color: #00a6ed;
 }
 
+.blink {
+  animation: blink 1.3s infinite;
+}
+
 .hero-part_B {
   color: white;
   padding: 0;
@@ -63,10 +67,11 @@
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
   transition: all 0.3s ease; /* Smooth transition for hover effects */
 }
+
 
 .get-started-btn {
   background-color: #00A6ED;
@@ -87,4 +92,13 @@
   border-radius: 5px;
   height: 400px; 
   width: 600px;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }

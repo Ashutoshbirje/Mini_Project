@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 85vh;
-    background-color: #f4f4f9;
+    background-color: #f9f9f9;
   }
   
   .signup-form {
@@ -59,6 +59,7 @@
   }
   
   label {
+    color: rgb(59, 56, 56);
     display: block;
     margin-bottom: 4px;
   }

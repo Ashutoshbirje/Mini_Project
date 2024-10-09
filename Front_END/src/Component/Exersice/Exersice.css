@@ -2,17 +2,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 75vh;
+    height: 80vh;
     width: 100vw;
     padding: 20px;
+    background-color: #f9f9f9;
   }
-   
+  
   .yoga-container {
     display: flex;
     justify-content: space-between;
     gap:10px;
     padding: 10px; /* Added padding inside the container */
-    background-color: #f3f3f3;
+    background-color: #fff;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
   }
@@ -21,8 +22,11 @@
     position: relative;
     width: 640px;
     height: 450px;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
   }
-  
+
   /* Parent container for webcam and canvas */
 .webcam-container {
   position: relative;
@@ -119,8 +123,8 @@
   }
   
   .data-btn{
-    background-color:white;
-    color: black;
+    background-color: #007acc;
+    color: white;
     font-weight: bold;
   }
   

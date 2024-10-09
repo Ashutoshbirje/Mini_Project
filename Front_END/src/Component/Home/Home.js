@@ -11,8 +11,8 @@ import { Link } from "react-router-dom";
           <div className="hero-content">
             <div className='hero-part_A'>
               <h1>
-                <div>We provide <span className="highlight typing-effect">medical</span></div>
-                services that you can<div><span className="highlight typing-effect">trust </span>!</div>
+                <div>We provide <span className="highlight typing-effect blink">medical</span></div>
+                services that you can<div><span className="highlight typing-effect blink">trust </span>!</div>
               </h1>
             </div>
             <div className='hero-part_B'>
