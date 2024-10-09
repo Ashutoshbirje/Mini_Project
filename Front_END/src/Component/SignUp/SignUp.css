@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 85vh;
     background-color: #f4f4f9;
   }
   
@@ -29,16 +29,16 @@
   .name {
     display: flex; 
     justify-content: space-around;
-    gap:30px;
+    gap:20px;
   }
 
   input[type="text"] {
-    width: 40%;
+    width: 100%;
     padding: 0.75rem;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1rem;
-    margin-left: 10px;
+    box-sizing: border-box;
   }
 
   .one{
@@ -46,6 +46,7 @@
     align-items:flex-start;
     justify-content: flex-start;
   }
+  
   .form-group {
     margin-bottom: 1rem;
     text-align: left;

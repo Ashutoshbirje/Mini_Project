@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom"; // Import Link and useNavigate from react-router-dom
 import './SignUp.css';
-import Login from '../Login/Login'; // Assuming you have a separate Login component
 
 const SignUp = ({ setUser }) => {
   const [firstName, setFirstName] = useState('');
@@ -8,20 +8,14 @@ const SignUp = ({ setUser }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false); // Modal state for login
+  const navigate = useNavigate(); // Hook to navigate programmatically
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Sign Up Details:', { firstName, lastName, email, password });
-  };
-
-  const openLoginModal = (e) => {
-    e.preventDefault(); // Prevent default link behavior
-    setIsLoginModalOpen(true); // Open the login modal
-  };
-
-  const closeModal = () => {
-    setIsLoginModalOpen(false); // Close the login modal
+    // Simulate successful sign-up (for example purposes)
+    setUser({ firstName, email });
+    navigate('/login'); // Redirect to login after signup
   };
 
   return (
@@ -85,21 +79,9 @@ const SignUp = ({ setUser }) => {
         <button type="button" className="btn-secondary">Continue with Google</button>
 
         <p className="sign-up-text">
-          Already have an account? <a href="/" onClick={openLoginModal}>Login</a> {/* Open login modal on click */}
+          Already have an account? <Link to="/login">Login</Link> {/* Navigate to login page */}
         </p>
       </form>
-
-      {/* Login Modal */}
-      {isLoginModalOpen && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={closeModal}>
-              &times;
-            </span>
-            <Login setUser={setUser} /> {/* Login component opens in the modal */}
-          </div>
-        </div>
-      )}
     </div>
   );
 };

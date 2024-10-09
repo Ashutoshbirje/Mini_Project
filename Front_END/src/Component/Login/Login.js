@@ -1,26 +1,20 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom'; // Import Link and useNavigate from react-router-dom
 import './Login.css';
-import SignUp from '../SignUp/SignUp'; // Importing the SignUp component
 
 const Login = ({ setUser }) => { // setUser is passed as a prop here
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const navigate = useNavigate(); // Hook to navigate programmatically
+
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle login logic here
     console.log('Email:', email, 'Password:', password);
-  };
-
-  const [isAltSignUpModalOpen, setIsAltSignUpModalOpen] = useState(false); // Modal state for alternative signup
-
-  const openAltSignUpModal = (e) => {
-    e.preventDefault(); // Prevent default link behavior
-    setIsAltSignUpModalOpen(true); // Open the alternative sign-up modal
-  };
-
-  const closeModal = () => {
-    setIsAltSignUpModalOpen(false); // Close the alternative sign-up modal
+    // Simulate successful login (for example purposes)
+    setUser({ email });
+    navigate('/'); // Redirect to home after login (can be customized)
   };
 
   return (
@@ -54,7 +48,7 @@ const Login = ({ setUser }) => { // setUser is passed as a prop here
         </div>
         
         <div className="form-group">
-          <a href="/forgot-password" className="forgot-password">Forgot password?</a>
+          <a href="/#" className="forgot-password">Forgot password?</a>
         </div>
         
         <button type="submit" className="btn-primary">Login</button>
@@ -64,21 +58,9 @@ const Login = ({ setUser }) => { // setUser is passed as a prop here
         <button type="button" className="btn-secondary">Continue with Google</button>
         
         <p className="sign-up-text">
-          Don’t have an account? <a href="/" onClick={openAltSignUpModal}>Sign Up</a> {/* Open alternative sign-up modal on click */}
+          Don’t have an account? <Link to="/signup">Sign Up</Link> {/* Navigate to sign-up page */}
         </p>
       </form>
-
-      {/* Alternative Sign-Up Modal */}
-      {isAltSignUpModalOpen && (
-        <div className="modal">
-          <div className="modal-content">
-            <span className="close" onClick={closeModal}>
-              &times;
-            </span>
-            <SignUp setUser={setUser} /> {/* Passing setUser as a prop to SignUp */}
-          </div>
-        </div>
-      )}
     </div>
   );
 };
