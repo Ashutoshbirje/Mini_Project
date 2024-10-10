@@ -12,6 +12,7 @@ import Exercise from "./Component/Exersice/Exersice";
 import HelpGuide from './Component/Exersice/Help-Guide/HelpGuide';
 import GetStarted from "./Component/GetStarted/GetStarted";
 import FirstAid from "./Component/Help/First-aid/First-aid";
+import ImportantContacts from "./Component/Help/Contact/ImportantContacts";
 import GetAppoint from "./Component/GetAppoint/GetAppoint"; 
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
           <Route path="/login" element={<Login />} /> {/* Route for login */}
           <Route path="/signup" element={<Signup />} /> {/* Route for signup */}
           <Route path="/get-started" element={<GetStarted />} />
-          <Route path="/get-started/Help" element={<FirstAid />} />
+          <Route path="/get-started/FirstAid" element={<FirstAid />} />
+          <Route path="/get-started/Contact" element={<ImportantContacts />} />
           <Route path="/get-appoint" element={<GetAppoint />} />
           <Route path="/services/symptom-checker" element={<Check />} />
           <Route path="/services/virtual-assistant" element={<Chatbot/>} />
