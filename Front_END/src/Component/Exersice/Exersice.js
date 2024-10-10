@@ -209,11 +209,9 @@ function Exersice() {
               setCurrentPose={setCurrentPose}
             />
             <button className="secondary-btn">Start Pose</button>
-            <button className="secondary-btn">
-            <Link to="/Exercise/Help" style={{ width: '110%', display: 'block' }}>
-            Help
+            <Link to="/Exercise/Help" className="full-width-link">
+            <button className="secondary-btn">Help</button>
             </Link>
-            </button>
             <button onClick={stopPose} className="secondary-btn stop-btn">Stop Pose</button>
             <button className="secondary-btn data-btn">Pose Time: {poseTime} s</button>
             <button className="secondary-btn data-btn">Best Time: {bestPerform} s</button>
@@ -244,9 +242,10 @@ function Exersice() {
           />
           <button onClick={startYoga} className="secondary-btn">Start Pose</button>
           
-          <Link to="/Exercise/Help" style={{ color: 'white', textDecoration: 'none' }}>
+          <Link to="/Exercise/Help" className="full-width-link">
           <button className="secondary-btn">Help</button>
           </Link>
+
         </div>
       </div>
     </div>

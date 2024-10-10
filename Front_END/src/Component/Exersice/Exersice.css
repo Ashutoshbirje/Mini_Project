@@ -83,6 +83,13 @@
     /* background-color: #cc0000; */
   }
   
+  .full-width-link {
+    display: block;
+    width: 100%; /* Ensure the link takes full width */
+    color: white;
+    text-decoration: none;
+  }
+  
   .secondary-btn {
     background-color: #00a3ff;
     color: white;
@@ -93,28 +100,22 @@
     cursor: pointer;
     text-align: center;
     transition: background-color 0.3s ease;
-    width: 100%; /* Make buttons fill width */
+    width: 100%; /* Ensure full width for all buttons */
     font-weight: bold;
   }
   
-  .stop-btn {
-    background-color: #ff4444;
-  }
   .secondary-btn:hover {
     background-color: #007acc;
   }
   
-  /* Help button styling */
-  .secondary-btn:nth-child(2) {
-    background-color: #00a3ff; /* Keep blue for Help */
-  }
-  
+  /* Optional: Ensure specific hover for the Help button remains consistent */
   .secondary-btn:nth-child(2):hover {
     background-color: #007acc;
   }
   
-  .secondary-btn:hover {
-    background-color: #007acc;
+  /* Stop button for red background */
+  .stop-btn {
+    background-color: #ff4444;
   }
   
   .stop-btn:hover {

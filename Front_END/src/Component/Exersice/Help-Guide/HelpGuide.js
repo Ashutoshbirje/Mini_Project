@@ -19,7 +19,7 @@ const HelpGuide = () => {
     },
     {
       title: "Step 4: Stop the Pose",
-      content: "Click on the 'Tree' button and navigate to other pose demo."
+      content: "Click on the 'Tree' button and navigate to other pose demo and follow same step."
     },
     {
       title: "Tips for Best Results",
