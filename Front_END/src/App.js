@@ -8,10 +8,11 @@ import Home from './Component/Home/Home';
 import Check from './Component/Services/SymptomChecker/Check';
 import Chatbot from './Component/Services/SymptomChecker/Check';
 import Call from './Component/Services/SymptomChecker/Check';
+import Exercise from "./Component/Exersice/Exersice";
 import HelpGuide from './Component/Exersice/Help-Guide/HelpGuide';
 import GetStarted from "./Component/GetStarted/GetStarted";
+import FirstAid from "./Component/Help/First-aid/First-aid";
 import GetAppoint from "./Component/GetAppoint/GetAppoint"; 
-import Exercise from "./Component/Exersice/Exersice";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/login" element={<Login />} /> {/* Route for login */}
           <Route path="/signup" element={<Signup />} /> {/* Route for signup */}
           <Route path="/get-started" element={<GetStarted />} />
+          <Route path="/get-started/Help" element={<FirstAid />} />
           <Route path="/get-appoint" element={<GetAppoint />} />
           <Route path="/services/symptom-checker" element={<Check />} />
           <Route path="/services/virtual-assistant" element={<Chatbot/>} />
