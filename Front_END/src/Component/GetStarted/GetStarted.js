@@ -32,7 +32,7 @@ const GetStarted = () => {
 
                 {/* Third Service Item */}
                 <div className="service-item">
-                    <Link to="/get-started/Help">
+                    <Link to="/get-started/Medical">
                         <div className="icon-circle">
                             <FontAwesomeIcon icon={faShoppingCart} size="2x" />
                         </div>

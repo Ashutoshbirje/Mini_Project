@@ -9,12 +9,12 @@ import About from './Component/About/About';
 import Help from './Component/Help/help/Help';
 import Check from './Component/Services/SymptomChecker/Check';
 import Chatbot from './Component/Services/SymptomChecker/Check';
-import Call from './Component/Services/SymptomChecker/Check';
 import Exercise from "./Component/Exersice/Exersice";
 import HelpGuide from './Component/Exersice/Help-Guide/HelpGuide';
 import GetStarted from "./Component/GetStarted/GetStarted";
 import FirstAid from "./Component/Help/First-aid/First-aid";
 import ImportantContacts from "./Component/Help/Contact/ImportantContacts";
+import Medical from "./Component/Help/Medical/medical"
 import GetAppoint from "./Component/GetAppoint/GetAppoint"; 
 
 function App() {
@@ -31,10 +31,10 @@ function App() {
           <Route path="/get-started" element={<GetStarted />} />
           <Route path="/get-started/FirstAid" element={<FirstAid />} />
           <Route path="/get-started/Contact" element={<ImportantContacts />} />
+          <Route path="/get-started/Medical" element={<Medical/>} />
           <Route path="/get-appoint" element={<GetAppoint />} />
           <Route path="/services/symptom-checker" element={<Check />} />
           <Route path="/services/virtual-assistant" element={<Chatbot/>} />
-          <Route path="/services/personalized-advice" element={<Call />} /> 
           <Route path="/Exercise" element={<Exercise />} /> 
           <Route path="/Exercise/Help" element={<HelpGuide />} /> 
         </Routes>

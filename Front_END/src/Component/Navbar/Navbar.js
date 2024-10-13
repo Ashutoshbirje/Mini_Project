@@ -34,11 +34,6 @@ const Navbar = () => {
                       Virtual Assistant
                     </Link>
                   </li>
-                  <li>
-                    <Link to="/services/personalized-advice" style={{ color: '#857b7b' }}>
-                      Personalized Advice
-                    </Link>
-                  </li>
                 </ul>
               </li>
               <li className="navbar-item dropdown">
