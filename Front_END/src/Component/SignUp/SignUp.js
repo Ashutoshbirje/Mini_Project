@@ -3,8 +3,7 @@ import { Link, useNavigate } from "react-router-dom"; // Import Link and useNavi
 import './SignUp.css';
 
 const SignUp = ({ setUser }) => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [name, setName] = useState(''); // Changed from firstName to name
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
@@ -12,9 +11,9 @@ const SignUp = ({ setUser }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Sign Up Details:', { firstName, lastName, email, password });
+    console.log('Sign Up Details:', { name, email, password }); // Updated log to include name
     // Simulate successful sign-up (for example purposes)
-    setUser({ firstName, email });
+    setUser({ name, email });
     navigate('/login'); // Redirect to login after signup
   };
 
@@ -23,29 +22,16 @@ const SignUp = ({ setUser }) => {
       <form className="signup-form" onSubmit={handleSubmit}>
         <h2>Sign Up</h2>
 
-        <div className="name">
-          <div className="form-group">
-            <label htmlFor="firstName">First Name *</label>
-            <input
-              type="text"
-              id="firstName"
-              placeholder="First Name"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="lastName">Last Name *</label>
-            <input
-              type="text"
-              id="lastName"
-              placeholder="Last Name"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              required
-            />
-          </div>
+        <div className="form-group">
+          <label htmlFor="name">Name *</label> {/* Changed from First Name to Name */}
+          <input
+            type="text"
+            id="name"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)} // Updated state management
+            required
+          />
         </div>
 
         <div className="form-group">

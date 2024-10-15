@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';import './App.css';
 import Navbar from './Component//Navbar/Navbar';
 import Login from "./Component/Login/Login"; // Import the Login component
 import Signup from "./Component/SignUp/SignUp"; // Import the Signup component
@@ -16,10 +15,18 @@ import FirstAid from "./Component/Help/First-aid/First-aid";
 import ImportantContacts from "./Component/Help/Contact/ImportantContacts";
 import Medical from "./Component/Help/Medical/medical"
 import GetAppoint from "./Component/GetAppoint/GetAppoint"; 
-// Hi   
-// ash
+
 function App() {
-  const [user, setUser] = useState(null); // Initialize user state
+  const [user, setUser] = useState(null); // Store user data
+
+  useEffect(() => {
+    const token = localStorage.getItem('authToken');
+    if (token) setUser(true); // Assume user is logged in if token exists
+  }, []);
+
+  const ProtectedRoute = ({ element }) => {
+    return user ? element : <Navigate to="/login" />;
+  };
   return (
     <Router>
       <div className="App">
@@ -28,13 +35,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/About" element={<About/>} />
           <Route path="/Help" element={<Help/>} />
-          <Route path="/login" element={<Login setUser={setUser} />}/> {/* Route for login */}
-          <Route path="/signup" element={<Signup />} /> {/* Route for signup */}
+          <Route path="/login" element={<Login setUser={setUser} />} /> {/* Route for login */}
+          <Route path="/signup" element={<Signup setUser={setUser} />} /> {/* Route for signup */}
           <Route path="/get-started" element={<GetStarted />} />
           <Route path="/get-started/FirstAid" element={<FirstAid />} />
           <Route path="/get-started/Contact" element={<ImportantContacts />} />
           <Route path="/get-started/Medical" element={<Medical/>} />
-          <Route path="/get-appoint" element={<GetAppoint />} />
+          <Route path="/get-appoint" element={<ProtectedRoute element={<GetAppoint />} />} />
           <Route path="/services/symptom-checker" element={<Check />} />
           <Route path="/services/virtual-assistant" element={<Chatbot/>} />
           <Route path="/Exercise" element={<Exercise />} /> 
