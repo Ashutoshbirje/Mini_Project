@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Call = () => {
+const Profile = () => {
   return (
     <div className="noticeContainer">
       <h1 className="noticeTitle">Hi</h1>
@@ -8,4 +8,4 @@ const Call = () => {
   );
 };
 
-export default Call;
+export default Profile;

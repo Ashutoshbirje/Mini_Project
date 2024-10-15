@@ -1,12 +1,17 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
-import Profile from "../Profile/Profile"; // Import Profile component
+// Component/Navbar/Navbar.js
+import React from "react";
+import { Link , useNavigate }  from "react-router-dom"; // Import Link from react-router-dom
 import "./Navbar.css";
 import logo from '../../images/Logo192.png'; 
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
-const Navbar = () => {
-  const [user, setUser] = useState(null); // State to hold user info
+const Navbar = ({ user, setUser }) => { // Receive user and setUser as props
 
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  const handleProfileClick = () => {
+    navigate('/profile'); // Redirect to the Profile section on click
+  };
   return (
     <div>
       <nav className="navbar">
@@ -47,18 +52,20 @@ const Navbar = () => {
 
           <div className="navbar-right">
             {user ? (
-              <Profile user={user} />
+              <>
+      <div className="noticeContainer">
+      <div className="userIcon" onClick={handleProfileClick}>
+        <i className="fas fa-user"></i>
+      </div>
+      </div>
+              </>
             ) : (
               <>
                 <Link to="/login">
-                  <button className="login-btn">
-                    Login
-                  </button>
+                  <button className="login-btn">Login</button>
                 </Link>
                 <Link to="/signup">
-                  <button className="signup-btn">
-                    Sign Up
-                  </button>
+                  <button className="signup-btn">Sign Up</button>
                 </Link>
               </>
             )}
