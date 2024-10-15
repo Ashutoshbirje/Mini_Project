@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './Component//Navbar/Navbar';
@@ -18,6 +18,7 @@ import Medical from "./Component/Help/Medical/medical"
 import GetAppoint from "./Component/GetAppoint/GetAppoint"; 
 
 function App() {
+  const [user, setUser] = useState(null); // Initialize user state
   return (
     <Router>
       <div className="App">
@@ -26,7 +27,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/About" element={<About/>} />
           <Route path="/Help" element={<Help/>} />
-          <Route path="/login" element={<Login />} /> {/* Route for login */}
+          <Route path="/login" element={<Login setUser={setUser} />}/> {/* Route for login */}
           <Route path="/signup" element={<Signup />} /> {/* Route for signup */}
           <Route path="/get-started" element={<GetStarted />} />
           <Route path="/get-started/FirstAid" element={<FirstAid />} />

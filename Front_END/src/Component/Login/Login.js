@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Import Link and useNavigate from react-router-dom
+import { Link, useNavigate } from 'react-router-dom'; 
 import './Login.css';
 
-const Login = ({ setUser }) => { // setUser is passed as a prop here
+const Login = ({ setUser }) => { 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const navigate = useNavigate(); // Hook to navigate programmatically
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle login logic here
     console.log('Email:', email, 'Password:', password);
-    // Simulate successful login (for example purposes)
-    setUser({ email });
-    navigate('/'); // Redirect to home after login (can be customized)
+    // Simulate successful login
+    setUser({ email }); // Call setUser with user data
+    navigate('/'); // Redirect to home after login
   };
 
   return (
@@ -58,7 +57,7 @@ const Login = ({ setUser }) => { // setUser is passed as a prop here
         <button type="button" className="btn-secondary">Continue with Google</button>
         
         <p className="sign-up-text">
-          Don’t have an account? <Link to="/signup">Sign Up</Link> {/* Navigate to sign-up page */}
+          Don’t have an account? <Link to="/signup">Sign Up</Link>
         </p>
       </form>
     </div>
