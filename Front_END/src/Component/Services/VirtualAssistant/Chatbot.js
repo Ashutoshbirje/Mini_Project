@@ -1,111 +1,71 @@
-import React, { useState, useEffect } from 'react';
-import './Chatbot.css'; // Move styles here or embed them as a style object
+import React, { useState } from 'react';
+import axios from 'axios';
+import './Chatbot.css'; // Optional: Custom styling
 
-const Chatbot = () => {
-    const [messages, setMessages] = useState([]);
-    const [userMessage, setUserMessage] = useState('');
+function Chatbot() {
+  const [messages, setMessages] = useState([{ role: 'system', content: 'Hello! How can I assist you today?' }]);
+  const [userInput, setUserInput] = useState('');
+  const [loading, setLoading] = useState(false); // Loading state
 
-    useEffect(() => {
-        // Add initial bot message
-        setTimeout(() => {
-            addMessage("Hello! I'm ArogyaSaathi, your health companion. How can I assist you today?", 'bot-message');
-        }, 500);
-    }, []);
+  const API_KEY = 'your-openai-api-key'; // Replace with your real API key
 
-    const sendMessage = () => {
-        if (userMessage.trim() === "") {
-            return;
+  const handleSend = async () => {
+    if (userInput.trim() === '') return;
+
+    const newMessages = [...messages, { role: 'user', content: userInput }];
+    setMessages(newMessages);
+    setUserInput('');
+    setLoading(true); // Show loading state
+
+    try {
+      const response = await axios.post(
+        'https://api.openai.com/v1/chat/completions',
+        {
+          model: 'gpt-3.5-turbo',
+          messages: newMessages.slice(-5),
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${API_KEY}`,
+            'Content-Type': 'application/json',
+          }
         }
+      );
 
-        // Add user message to chat
-        addMessage(userMessage, 'user-message');
-        setUserMessage('');
+      const botMessage = response.data.choices[0].message.content;
+      setMessages([...newMessages, { role: 'assistant', content: botMessage }]);
+    } catch (error) {
+      console.error('Error:', error.response ? error.response.data : error.message);
+      setMessages([...newMessages, { role: 'assistant', content: 'Sorry, something went wrong. Please try again.' }]);
+    } finally {
+      setLoading(false); // Hide loading state
+    }
+  };
 
-        // Simulate loading animation
-        addLoadingBubbles();
-
-        // Send message to backend
-        fetch('http://127.0.0.1:5000/chat', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ message: userMessage })
-        })
-        .then(response => response.json())
-        .then(data => {
-            removeLoadingBubbles();
-            addMessage(data.response, 'bot-message');
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            removeLoadingBubbles();
-            addMessage("Sorry, something went wrong. Please try again.", 'bot-message');
-        });
-    };
-
-    const addMessage = (message, className) => {
-        setMessages(prevMessages => [...prevMessages, { text: message, type: className }]);
-    };
-
-    const addLoadingBubbles = () => {
-        setMessages(prevMessages => [...prevMessages, { type: 'loading-bubbles' }]);
-    };
-
-    const removeLoadingBubbles = () => {
-        setMessages(prevMessages => prevMessages.filter(msg => msg.type !== 'loading-bubbles'));
-    };
-
-    const handleInputChange = (e) => {
-        setUserMessage(e.target.value);
-    };
-
-    const handleKeyPress = (e) => {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
-    };
-
-    return (
-        <div className="chat-container">
-            <div className="chat-header">
-                <i className="fas fa-heartbeat"></i> ArogyaSaathi
-            </div>
-            <div id="chatbox" className="chatbox">
-                {messages.map((msg, index) => {
-                    if (msg.type === 'loading-bubbles') {
-                        return (
-                            <div className="loading-bubbles" key={index}>
-                                <div className="loading-bubble"></div>
-                                <div className="loading-bubble"></div>
-                                <div className="loading-bubble"></div>
-                            </div>
-                        );
-                    } else {
-                        return (
-                            <div key={index} className={`message ${msg.type}`}>
-                                {msg.type === 'bot-message' ? <i className="fas fa-robot bot-icon"></i> : null}
-                                {msg.text}
-                            </div>
-                        );
-                    }
-                })}
-            </div>
-            <div className="input-area">
-                <input
-                    type="text"
-                    id="message-box"
-                    placeholder="Type your health query..."
-                    value={userMessage}
-                    onChange={handleInputChange}
-                    onKeyDown={handleKeyPress}
-                />
-                <button id="send-button" onClick={sendMessage}>
-                    <i className="fas fa-paper-plane"></i>
-                </button>
-            </div>
-        </div>
-    );
-};
+  return (
+    <div className="chat-container">
+      <div className="messages">
+        {messages.map((msg, index) => (
+          <div key={index} className={`message ${msg.role}`}>
+            {msg.content}
+          </div>
+        ))}
+        {loading && <div className="message assistant">Thinking...</div>}
+      </div>
+      <div className="input-area">
+        <input
+          type="text"
+          value={userInput}
+          onChange={(e) => setUserInput(e.target.value)}
+          placeholder="Type your message..."
+          onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+        />
+        <button onClick={handleSend} disabled={loading}>
+          {loading ? 'Sending...' : 'Send'}
+        </button>
+      </div>
+    </div>
+  );
+}
 
 export default Chatbot;
