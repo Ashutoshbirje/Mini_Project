@@ -9,7 +9,7 @@ import Home from './Component/Home/Home';
 import About from './Component/About/About';
 import Help from './Component/Help/help/Help';
 import Check from './Component/Services/SymptomChecker/Check';
-import Chatbot from './Component/Services/SymptomChecker/Check';
+import Chatbot from './Component/Services/VirtualAssistant/Chatbot';
 import Exercise from "./Component/Exersice/Exersice";
 import HelpGuide from './Component/Exersice/Help-Guide/HelpGuide';
 import GetStarted from "./Component/GetStarted/GetStarted";
