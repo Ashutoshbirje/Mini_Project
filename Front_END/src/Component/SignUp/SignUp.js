@@ -1,21 +1,31 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"; // Import Link and useNavigate from react-router-dom
 import './SignUp.css';
+import axios from "axios"
 
 const SignUp = ({ setUser }) => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [name, setName] = useState(''); // Changed from firstName to name
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   
   const navigate = useNavigate(); // Hook to navigate programmatically
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Sign Up Details:', { firstName, lastName, email, password });
-    // Simulate successful sign-up (for example purposes)
-    setUser({ firstName, email });
-    navigate('/login'); // Redirect to login after signup
+    console.log('Sign Up Details:', { name, email, password }); // Updated log to include name
+
+    const config = {
+      headers: { "Content-Type": "application/json" },
+    };
+
+    try {
+      const res = await axios.post(`http://localhost:5000/api/v1/user/register`, {name, email, password}, config)
+      console.log(res.data);
+      
+    } catch (error) {
+      console.log(error);
+      
+    }
   };
 
   return (
@@ -23,29 +33,16 @@ const SignUp = ({ setUser }) => {
       <form className="signup-form" onSubmit={handleSubmit}>
         <h2>Sign Up</h2>
 
-        <div className="name">
-          <div className="form-group">
-            <label htmlFor="firstName">First Name *</label>
-            <input
-              type="text"
-              id="firstName"
-              placeholder="First Name"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="lastName">Last Name *</label>
-            <input
-              type="text"
-              id="lastName"
-              placeholder="Last Name"
-              value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-              required
-            />
-          </div>
+        <div className="form-group">
+          <label htmlFor="name">Name *</label> {/* Changed from First Name to Name */}
+          <input
+            type="text"
+            id="name"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)} // Updated state management
+            required
+          />
         </div>
 
         <div className="form-group">

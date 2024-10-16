@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './Component//Navbar/Navbar';
@@ -16,10 +16,15 @@ import FirstAid from "./Component/Help/First-aid/First-aid";
 import ImportantContacts from "./Component/Help/Contact/ImportantContacts";
 import Medical from "./Component/Help/Medical/medical"
 import GetAppoint from "./Component/GetAppoint/GetAppoint"; 
-// Hi   
-// ash
+
+
 function App() {
   const [user, setUser] = useState(null); // Initialize user state
+
+  useEffect(()=>{
+    console.log(user);
+    
+  }, [user])
   return (
     <Router>
       <div className="App">
