@@ -3,27 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import axios from 'axios';
 
-const Login = ({ setUser }) => { 
+const Login = ({ setUser }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
   const navigate = useNavigate();
 
-  // useEffect( => {
-    // const res = axios.get("localhost:3000/login", {
-  //     {
-  //       email, password
-  //     }
-  //   })  ;
-
-  //   if(res.ok){
-  //     navigate("/home")
-  //   }else{
-  //     alert("Invalid user")
-  //   }
-  // })
-
-  const handleSubmit = (e) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Email:', email, 'Password:', password);
@@ -33,10 +17,16 @@ const Login = ({ setUser }) => {
     };
 
     try {
-      const res = await axios.post(`http://localhost:5000/api/v1/user/login`, { email, password}, config)
-      setUser(res.data.data)
+      const res = await axios.post(
+        `http://localhost:5000/api/v1/user/login`, 
+        { email, password }, 
+        config
+      );
+      setUser(res.data.data);
+      navigate("/"); // Redirect on successful login
     } catch (error) {
       console.log(error);
+      alert("Invalid user credentials. Please try again.");
     }
   };
 
