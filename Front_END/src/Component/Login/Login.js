@@ -8,6 +8,20 @@ const Login = ({ setUser }) => {
 
   const navigate = useNavigate();
 
+  // useEffect( => {
+    // const res = axios.get("localhost:3000/login", {
+  //     {
+  //       email, password
+  //     }
+  //   })  ;
+
+  //   if(res.ok){
+  //     navigate("/home")
+  //   }else{
+  //     alert("Invalid user")
+  //   }
+  // })
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Email:', email, 'Password:', password);
