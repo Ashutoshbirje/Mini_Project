@@ -5,7 +5,7 @@ const AppointmentSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,  // Automatically generated unique identifier
     index: true,
     unique: true
-  },
+  }, 
   patient_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',  // Foreign key referencing Users (Patients)
