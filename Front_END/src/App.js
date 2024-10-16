@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './App.css';
 import Navbar from './Component//Navbar/Navbar';
 import Login from "./Component/Login/Login"; // Import the Login component
 import Signup from "./Component/SignUp/SignUp"; // Import the Signup component
@@ -17,6 +19,7 @@ import ImportantContacts from "./Component/Help/Contact/ImportantContacts";
 import Medical from "./Component/Help/Medical/medical"
 import GetAppoint from "./Component/GetAppoint/GetAppoint"; 
 
+<<<<<<< HEAD
 function App() {
   const [user, setUser] = useState(null); // Store user data
 
@@ -28,6 +31,16 @@ function App() {
   const ProtectedRoute = ({ element }) => {
     return user ? element : <Navigate to="/login" />;
   };
+=======
+
+function App() {
+  const [user, setUser] = useState(null); // Initialize user state
+
+  useEffect(()=>{
+    console.log(user);
+    
+  }, [user])
+>>>>>>> c4c8ace7efae3f199b6e3ded75cd631486fc5981
   return (
     <Router>
       <div className="App">

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
 import './Login.css';
+import axios from 'axios';
 
 const Login = ({ setUser }) => { 
   const [email, setEmail] = useState('');
@@ -23,11 +24,20 @@ const Login = ({ setUser }) => {
   // })
 
   const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Email:', email, 'Password:', password);
-    // Simulate successful login
-    setUser({ email }); // Call setUser with user data
-    navigate('/'); // Redirect to home after login
+
+    const config = {
+      headers: { "Content-Type": "application/json" },
+    };
+
+    try {
+      const res = await axios.post(`http://localhost:5000/api/v1/user/login`, { email, password}, config)
+      setUser(res.data.data)
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"; // Import Link and useNavigate from react-router-dom
 import './SignUp.css';
+import axios from "axios"
 
 const SignUp = ({ setUser }) => {
   const [name, setName] = useState(''); // Changed from firstName to name
@@ -9,12 +10,25 @@ const SignUp = ({ setUser }) => {
   
   const navigate = useNavigate(); // Hook to navigate programmatically
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Sign Up Details:', { name, email, password }); // Updated log to include name
     // Simulate successful sign-up (for example purposes)
     setUser({ name, email });
     navigate('/login'); // Redirect to login after signup
+
+    const config = {
+      headers: { "Content-Type": "application/json" },
+    };
+
+    try {
+      const res = await axios.post(`http://localhost:5000/api/v1/user/register`, {name, email, password}, config)
+      console.log(res.data);
+      
+    } catch (error) {
+      console.log(error);
+      
+    }
   };
 
   return (
