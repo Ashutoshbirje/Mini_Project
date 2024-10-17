@@ -108,6 +108,7 @@ const ArogyaSathi = () => {
     };
 
     return (
+        <div className="main-container">
         <div className="chatbot-container">
             <div className="header">
                 <FaUserMd className="icon" />
@@ -158,6 +159,7 @@ const ArogyaSathi = () => {
                     <FaPaperPlane />
                 </button>
             </div>
+        </div>
         </div>
     );
 };

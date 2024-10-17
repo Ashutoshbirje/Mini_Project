@@ -1,4 +1,11 @@
 /* General Styles */
+.main-container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height:85vh;
+}
+
 .chatbot-container {
     width: 400px;
     height: 600px;
