@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
 import './Login.css';
 import axios from 'axios';
+import Cookies from "js-cookie"
 
 const Login = ({ setUser }) => {
   const [email, setEmail] = useState('');
@@ -23,6 +24,8 @@ const Login = ({ setUser }) => {
         config
       );
       setUser(res.data.data);
+      console.log(res.data.data);
+      Cookies.set('refreshToken', res.data.data.refreshToken, { expires:7});
       navigate("/"); // Redirect on successful login
     } catch (error) {
       console.log(error);

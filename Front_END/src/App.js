@@ -17,15 +17,37 @@ import FirstAid from "./Component/Help/First-aid/First-aid";
 import ImportantContacts from "./Component/Help/Contact/ImportantContacts";
 import Medical from "./Component/Help/Medical/medical";
 import GetAppoint from "./Component/GetAppoint/GetAppoint";
+import Cookies from "js-cookie"
+import axios from 'axios';
 
 function App() {
   const [user, setUser] = useState(null); // Initialize user state
 
+  const token = Cookies.get('refreshToken');
+
+  const getUserProfile = async ()=> {
+    try {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+          'Authorization': `Bearer ${token}`,
+        },
+      };
+      console.log(token);
+      
+      const { data } = await axios.get("http://localhost:5000/api/v1/user/get-user-profile", config);
+      setUser(data.data)
+      
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
-    const token = localStorage.getItem('authToken');
-    if (token) setUser(true); // Assume user is logged in if token exists
-    console.log(user); // Log user state
-  }, [user]);
+    if(token){
+      getUserProfile()
+    }
+  }, [token]);
 
   const ProtectedRoute = ({ element }) => {
     return user ? element : <Navigate to="/login" />;
@@ -41,7 +63,7 @@ function App() {
           <Route path="/Help" element={<Help />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/signup" element={<Signup setUser={setUser} />} />
-          <Route path="/profile" element={<Profile setUser={setUser} />} />
+          <Route path="/profile" element={<Profile setUser={setUser} user={user} />} />
           <Route path="/get-started" element={<GetStarted />} />
           <Route path="/get-started/FirstAid" element={<FirstAid />} />
           <Route path="/get-started/Contact" element={<ImportantContacts />} />

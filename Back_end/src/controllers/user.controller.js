@@ -104,7 +104,6 @@ const loginUser = asyncHandler(async (req, res) =>{
 
     return res
     .status(200)
-    .cookie("accessToken", accessToken, options)
     .cookie("refreshToken", refreshToken, options)
     .json(
         new ApiResponse(
@@ -143,21 +142,17 @@ const logoutUser = asyncHandler(async(req, res) => {
     .json(new ApiResponse(200, {}, "User logged Out"))
 })
 
-// const getUserProfile = asyncHandler(async (req, res) => {
-//     const { userId } = req.params;
+const getUserProfile = asyncHandler(async (req, res) => {
 
-//     const user = await User.findById(userId).select('fullName email phone address gender birthday avatar');
+    const user = await User.findById(req.user._id)
 
-//     if (!user) {
-//         throw new ApiError(404, 'User not found');
-//     }
+    if (!user) {
+        throw new ApiError(404, 'User not found');
+    }
 
-//     return res.status(200).json(new ApiResponse(200, user, 'User profile fetched successfully'));
-// });
+    return res.status(200).json(new ApiResponse(200, user, 'User profile fetched successfully'));
+});
 
-// module.exports = {
-//     getUserProfile,
-// };
 
 const refreshAccessToken = asyncHandler(async (req, res) => {
     const incomingRefreshToken = req.cookies.refreshToken || req.body.refreshToken
@@ -212,7 +207,8 @@ export {
     registerUser,
     loginUser,
     logoutUser,
-    refreshAccessToken
+    refreshAccessToken,
+    getUserProfile
 }
 
 
