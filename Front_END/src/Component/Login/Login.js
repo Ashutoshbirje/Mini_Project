@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
 import './Login.css';
 import axios from 'axios';
+import Cookies from "js-cookie"
 
 const Login = ({ setUser }) => {
   const [email, setEmail] = useState('');
@@ -31,13 +32,10 @@ const Login = ({ setUser }) => {
         { email, password }, 
         config
       );
-      const userData = res.data.data;
-      setUser(userData); // Set user in state
-
-      // Store user data in localStorage
-      localStorage.setItem('user', JSON.stringify(userData));
-
-      navigate('/'); // Redirect on successful login
+      setUser(res.data.data);
+      console.log(res.data.data);
+      Cookies.set('refreshToken', res.data.data.refreshToken, { expires:7});
+      navigate("/"); // Redirect on successful login
     } catch (error) {
       console.log(error);
       alert('Invalid user credentials. Please try again.');
