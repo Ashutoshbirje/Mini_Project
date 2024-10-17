@@ -1,5 +1,4 @@
 import React from 'react';
-import './Notice.module.css'; // Import the CSS module
 
 const Check = () => {
   return (

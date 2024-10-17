@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
 import './Login.css';
 import axios from 'axios';
@@ -7,6 +7,15 @@ const Login = ({ setUser }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+
+  // Load user credentials from localStorage if available
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser) {
+      setUser(storedUser);  // Set user state
+      navigate('/'); // Redirect to home if user is already logged in
+    }
+  }, [setUser, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,11 +31,16 @@ const Login = ({ setUser }) => {
         { email, password }, 
         config
       );
-      setUser(res.data.data);
-      navigate("/"); // Redirect on successful login
+      const userData = res.data.data;
+      setUser(userData); // Set user in state
+
+      // Store user data in localStorage
+      localStorage.setItem('user', JSON.stringify(userData));
+
+      navigate('/'); // Redirect on successful login
     } catch (error) {
       console.log(error);
-      alert("Invalid user credentials. Please try again.");
+      alert('Invalid user credentials. Please try again.');
     }
   };
 
@@ -35,7 +49,7 @@ const Login = ({ setUser }) => {
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>Log in</h2>
         <p>Connect with the best professionals</p>
-        
+
         <div className="form-group">
           <label htmlFor="email">E-Mail Address *</label>
           <input 
@@ -47,7 +61,7 @@ const Login = ({ setUser }) => {
             required 
           />
         </div>
-        
+
         <div className="form-group">
           <label htmlFor="password">Password *</label>
           <input 
@@ -59,17 +73,17 @@ const Login = ({ setUser }) => {
             required 
           />
         </div>
-        
+
         <div className="form-group">
           <a href="/#" className="forgot-password">Forgot password?</a>
         </div>
-        
+
         <button type="submit" className="btn-primary">Login</button>
-        
+
         <div className="divider">OR</div>
-        
+
         <button type="button" className="btn-secondary">Continue with Google</button>
-        
+
         <p className="sign-up-text">
           Don’t have an account? <Link to="/signup">Sign Up</Link>
         </p>

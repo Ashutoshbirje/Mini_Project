@@ -15,7 +15,7 @@ const SignUp = ({ setUser }) => {
     console.log('Sign Up Details:', { name, email, password }); // Updated log to include name
     // Simulate successful sign-up (for example purposes)
     setUser({ name, email });
-    navigate('/login'); // Redirect to login after signup
+    navigate('/'); // Redirect to login after signup
 
     const config = {
       headers: { "Content-Type": "application/json" },
