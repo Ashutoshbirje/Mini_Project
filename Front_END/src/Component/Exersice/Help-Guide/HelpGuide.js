@@ -36,7 +36,7 @@ const HelpGuide = () => {
   };
 
   return (
-    <div className="help-container">
+    <div className="help-container1">
       <div className="help-box">
         <div className="page">
           <h2>{pages[currentPage - 1].title}</h2>

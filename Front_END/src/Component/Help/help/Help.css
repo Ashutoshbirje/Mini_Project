@@ -1,7 +1,7 @@
-.help-container {
+.help-container2 {
   max-width: 800px;
   margin: 0 auto;
-  padding-top: 600px;
+  padding: 10px;
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
   border-radius: 8px;
@@ -13,17 +13,17 @@
 }
 
 /* Hides scrollbar for Chrome, Safari, and Edge */
-.help-container::-webkit-scrollbar {
+.help-container2::-webkit-scrollbar {
   display: none;
 }
 
-.help-container h1 {
+.help-container2 h1 {
   color: #4CAF50;
   font-size: 28px;
   margin-bottom: 20px;
 }
 
-.help-container p {
+.help-container2 p {
   font-size: 16px;
   line-height: 1.6;
   color: #333;
@@ -45,7 +45,7 @@
   margin-left: 20px;
 }
 
-.help-container strong {
+.help-container2 strong {
   color: #4CAF50;
 }
 

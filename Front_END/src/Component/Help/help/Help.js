@@ -3,7 +3,7 @@ import './Help.css'; // Import the CSS file
 
 const Help = () => {
   return (
-    <div className="help-container">
+    <div className="help-container2">
       <h1>Welcome to ArogyaSathi: Your Modern Medical Portal</h1>
       <p>This guide will help you navigate and make the most of the platform's features.</p>
 

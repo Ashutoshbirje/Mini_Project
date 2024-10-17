@@ -3,7 +3,8 @@
     border-radius: 8px;
     border: 5px solid #00a3ff;
     padding: 10px;
-    list-style-position: inside; /* Ensures bullets are aligned inside the container */
+    list-style-type: none;
+    /* list-style-position: inside; Ensures bullets are aligned inside the container */
 }
 
 .instruction {
