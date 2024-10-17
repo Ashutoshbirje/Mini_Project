@@ -1,6 +1,6 @@
 import React from "react";
 import "./About.css"; // Import the custom CSS for styling
- 
+  
 const About = () => {
   return (
     <section className="about-section">
