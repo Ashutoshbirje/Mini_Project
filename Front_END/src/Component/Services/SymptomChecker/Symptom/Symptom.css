@@ -1,0 +1,124 @@
+/* Container Styles */
+.content-box{
+ width: 100%;  
+}
+
+#Symptoms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+/* Input Field Styling */
+.searchSymptomsInput {
+  width: 90%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.searchSymptomsInput:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.4);
+}
+
+/* Symptoms List */
+.symtomsListBox {
+  max-height: 200px;
+  width: 600px;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.symtomsListBox li {
+  margin-bottom: 0.8rem;
+}
+
+.symtomsListBox button {
+  background-color: #4a90e2;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.symtomsListBox button:hover {
+  background-color: #357abd;
+}
+
+/* User Symptoms Section */
+.UserSymptoms ul {
+  list-style: none;
+  padding: 0;
+  height: 250px;
+}
+
+.UserSymptoms li {
+  background-color: #e6f7ff;
+  border: 1px solid #b3e5fc;
+  color: #333;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  margin: 5px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+
+.UserSymptoms button {
+  background-color: transparent;
+  border: none;
+  color: #ff6b6b;
+  margin-left: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.UserSymptoms button:hover {
+  color: #e74c3c;
+}
+
+/* Reset Button */
+.resetButton {
+  margin-top: 1rem;
+}
+
+.resetButton button {
+  background-color: #ff6b6b;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.resetButton button:hover {
+  background-color: #e74c3c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #Symptoms {
+    flex-direction: column;
+  }
+  .resetButton {
+    justify-content: center;
+  }
+}

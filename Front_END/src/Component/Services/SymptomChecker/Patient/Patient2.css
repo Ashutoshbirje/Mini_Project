@@ -1,0 +1,31 @@
+#Patient2 {
+  line-height: 1.7;
+}
+.FormElement {
+  display: flex;
+  justify-content: center;
+  align-items: left;
+}
+.radioButtonDiv {
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  gap:20px;
+}
+
+@media (max-width: 63.938em) {
+  .radioButtonDiv {
+	display: flex;
+    justify-content: space-between;
+    align-items: left;
+    flex-direction: column;
+  }
+  
+  .FormElement {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+  }
+}
+

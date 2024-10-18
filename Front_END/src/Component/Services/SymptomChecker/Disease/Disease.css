@@ -1,0 +1,78 @@
+/* Main Disease Component container */
+.DiseaseComponent {
+  width: 600px;
+  max-width: 100%; /* Responsive */
+  height: 600px;
+  overflow-y: auto; /* Enable vertical scrolling */
+  margin: 0 auto; /* Center horizontally */
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Patient info section */
+.patientInfo {
+  margin-bottom: 16px;
+}
+
+/* Questions section styling */
+.patientQuestions {
+  margin-bottom: 16px;
+}
+
+/* Individual question styling */
+.singleQuestion {
+  margin: 8px 0;
+  padding: 10px;
+  background-color: #e8f5e9;
+  border-radius: 8px;
+}
+
+/* Diagnosis report section */
+.DiagnosisReport {
+  margin-top: 20px;
+}
+
+.titleReport {
+  margin-right: 12px;
+}
+
+/* Possibility Progress Bar */
+.Possibility {
+  margin-left: auto;
+  text-align: right;
+}
+
+.possibilityProgressBar {
+  width: 100%;
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.possibilityProgressBar div {
+  height: 8px;
+  background-color: #4caf50;
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+/* Disease Symptoms List */
+.diseaseSymptoms ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.diseaseSymptoms li {
+  padding: 5px 0;
+}
+
+.diseaseSymptoms li.active {
+  color: #388e3c;
+  font-weight: bold;
+}

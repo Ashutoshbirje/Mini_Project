@@ -1,0 +1,108 @@
+/* Container Styling */
+#Home {
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    transition: box-shadow 0.3s;
+  }
+  
+  #Home:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Form Styling */
+  .usa-form {
+    margin-top: 10px;
+  }
+  
+  /* Label Styling */
+  .usa-label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  /* Range Slider Styling */
+  .usa-range {
+    width: 100%;
+    margin-top: 10px;
+    height: 5px;
+    background-color: #ddd;
+    border-radius: 5px;
+    appearance: none;
+    transition: background-color 0.3s;
+  }
+  
+  .usa-range:hover {
+    background-color: #cce4f6;
+  }
+  
+  .usa-range::-webkit-slider-thumb {
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    background-color: #0071bc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+  }
+  
+  .usa-range:hover::-webkit-slider-thumb {
+    background-color: #005a9c;
+  }
+  
+  .usa-range:active::-webkit-slider-thumb {
+    transform: scale(1.2);
+  }
+  
+  /* Radio Buttons Styling */
+  .usa-radio {
+    margin: 15px 0;
+  }
+  
+  .usa-radio__input {
+    display: none;
+  }
+  
+  .usa-radio__label {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: 2px solid #0071bc;
+    border-radius: 25px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+  }
+  
+  .usa-radio__label:hover {
+    background-color: #cce4f6;
+  }
+  
+  .usa-radio__input:checked + .usa-radio__label {
+    background-color: #0071bc;
+    color: white;
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    #Home {
+      padding: 15px;
+    }
+  
+    .usa-label {
+      font-size: 16px;
+    }
+  
+    .usa-radio__label {
+      margin-right: 0;
+      margin-bottom: 10px;
+      display: block;
+      text-align: center;
+    }
+  }
+  
