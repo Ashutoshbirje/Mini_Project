@@ -2,9 +2,7 @@ import React from "react";
 import "./Home.css";
 
 const Home = (props) => {
-  //   console.log("is checked", props, props.isChecked, props.checked);
   return (
-      <div className="Symptom-container"> 
       <div id="Home1" className="tablet:grid-col padding-x-2">
         <p>Before using this symptom checker, please read carefully and accept our Terms and Services:</p>
         <ul>
@@ -20,7 +18,6 @@ const Home = (props) => {
             </label>
           </div>
         </form>
-      </div>
       </div>
   );
 };

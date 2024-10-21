@@ -1,6 +1,7 @@
 /* Container Styles */
 .content-box{
  width: 100%;  
+ height: 450px;
 }
 
 #Symptoms {
@@ -34,7 +35,7 @@
 
 /* Symptoms List */
 .symtomsListBox {
-  max-height: 200px;
+  max-height: 150px;
   width: 600px;
   overflow-y: auto;
   list-style: none;
@@ -65,7 +66,7 @@
 .UserSymptoms ul {
   list-style: none;
   padding: 0;
-  height: 250px;
+  height: 200px;
 }
 
 .UserSymptoms li {

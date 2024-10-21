@@ -1,10 +1,9 @@
 #Patient2 {
-  line-height: 1.7;
+  line-height: 0.5;
 }
 .FormElement {
   display: flex;
   justify-content: center;
-  align-items: left;
 }
 .radioButtonDiv {
   display: flex;
@@ -12,7 +11,11 @@
   align-items: left;
   gap:20px;
 }
-
+.Tag{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @media (max-width: 63.938em) {
   .radioButtonDiv {
 	display: flex;

@@ -48,10 +48,12 @@ class Patient2 extends Component {
 
   renderQuestion = (label, className) => (
     <div className="radioButtonDiv">
-      <h3>{label}</h3>
+      <div className="Tag">
+       <h2>{label}</h2>
+      </div>
       <form className="usa-form FormElement">
         {["Yes", "No", "Patient doesn't know"].map((option) => (
-          <div className="usa-radio margin-x-1" key={option}>
+          <div className="usa-radio" key={option}>
             <input
               className={`usa-radio__input ${className}`}
               onChange={this.handleOnChange}
@@ -73,11 +75,10 @@ class Patient2 extends Component {
   render() {
     return (
       <div id="Patient2">
-        <p>Select one answer in each row</p>
-        {this.renderQuestion("I am overweight or obese", "question_1")}
+        {this.renderQuestion("I am overweight", "question_1")}
         {this.renderQuestion("I smoke cigarettes", "question_2")}
-        {this.renderQuestion("I have been recently injured", "question_3")}
-        {this.renderQuestion("I have high cholesterol", "question_4")}
+        {this.renderQuestion("I have recent injury", "question_3")}
+        {this.renderQuestion("I have cholesterol", "question_4")}
         {this.renderQuestion("I have hypertension", "question_5")}
         {this.renderQuestion("I have diabetes", "question_6")}
       </div>

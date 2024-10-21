@@ -1,8 +1,8 @@
 /* Main Disease Component container */
 .DiseaseComponent {
-  width: 600px;
+  width: 620px;
   max-width: 100%; /* Responsive */
-  height: 600px;
+  height: 500px;
   overflow-y: auto; /* Enable vertical scrolling */
   margin: 0 auto; /* Center horizontally */
   padding: 20px;
@@ -14,12 +14,12 @@
 
 /* Patient info section */
 .patientInfo {
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 /* Questions section styling */
 .patientQuestions {
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 /* Individual question styling */

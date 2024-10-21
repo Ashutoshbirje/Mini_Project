@@ -6,6 +6,7 @@
 }
 
 .Symptom-container {
+  height: 50vh;
   border-radius: 1rem;
   background-color: #c9c3c3;
 }
@@ -16,7 +17,7 @@
   border-radius: 10px;
   width: 800px;
   border: 1px solid blue;
-
+  height: 500px;
 }
 
 .button-container{
@@ -37,31 +38,26 @@
 .contain-container{
  display: flex;
  justify-content: flex-start;
- height: 600px;
+ height: 480px;
  padding: 10px;
  background-color: white;
  border-left:1px solid rgb(108, 107, 107);
+ border-radius: 10px;
 }
 
 .content {
   display: flex;
   justify-content: center;
   align-items: center;
+  
   width: 100%; /* Optional, based on your layout */
   box-sizing: border-box; /* Ensure padding and border are included in dimensions */
 }
 
 #buttonsSection {
   justify-content: space-between;
-  /* padding: 1rem 2rem; */
   border-top: 1px solid #cfd6dd;
 }
-
-#buttonsSection > button {
-  margin-bottom: 0.5rem;
-}
-
-
 
 #ContentDiv {
   background-color: #ffffff;
