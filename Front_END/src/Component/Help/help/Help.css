@@ -1,3 +1,9 @@
+.Section{
+  width: 100%;
+  background: linear-gradient(to right, #ebf8ff, #e9d8fd);
+  padding: 20px;
+}
+
 .help-container2 {
   max-width: 800px;
   margin: 0 auto;

@@ -1,3 +1,10 @@
+.section1{
+  width: 100%;
+  background: linear-gradient(to right, #ebf8ff, #e9d8fd);
+  padding: 20px;
+  height: 80vh;
+}
+
 .profile-container {
     max-width: 600px;
     margin: 50px auto;

@@ -1,0 +1,166 @@
+/* AppointmentModal.css */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.0rem;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+}
+
+.close-button:hover {
+  color: #333;
+}
+
+.form-input {
+  position: relative;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+.form-input1 {
+  position: relative;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+.form-input input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-input1 input {
+  width: 86%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.form-input svg {
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  transform: translateY(-50%);
+  color: #666;
+}
+
+.form-input1 svg {
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  transform: translateY(-50%);
+  color: #666;
+}
+
+.textarea {
+  width: 90%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 100px;
+  margin-bottom: 1.0rem;
+}
+
+select {
+  width: 100%;
+  padding: 0.75rem;
+  padding-right: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  background-color: white;
+  margin-bottom: 1rem;
+}
+.action-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.submit-button,
+.cancel-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.submit-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+  box-shadow: 0 6px 12px rgba(76, 175, 80, 0.3);
+  transform: translateY(-2px);
+}
+
+.cancel-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #da190b;
+  box-shadow: 0 6px 12px rgba(244, 67, 54, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Optional: Add animation on focus */
+.submit-button:focus,
+.cancel-button:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Smooth button press animation */
+.submit-button:active,
+.cancel-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

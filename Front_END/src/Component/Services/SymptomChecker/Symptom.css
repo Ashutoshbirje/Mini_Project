@@ -3,6 +3,8 @@
   justify-content: center;
   align-items: center;
   padding: 10px 0px;
+  height: 85vh;
+  background: linear-gradient(to right, #ebf8ff, #e9d8fd);
 }
 
 .Symptom-container {
@@ -17,6 +19,7 @@
   border-radius: 10px;
   width: 800px;
   border: 1px solid blue;
+  background-color: white;
   height: 500px;
 }
 
@@ -42,7 +45,8 @@
  padding: 10px;
  background-color: white;
  border-left:1px solid rgb(108, 107, 107);
- border-radius: 10px;
+ border-top-right-radius: 10px;
+ border-bottom-right-radius: 10px;
 }
 
 .content {

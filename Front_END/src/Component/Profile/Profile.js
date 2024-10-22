@@ -23,6 +23,8 @@ const Profile = ({user, setUser}) => {
           'Authorization': `Bearer ${user.refreshToken}`,
         },
       };
+
+
       axios.get("http://localhost:4000/api/v1/user/logout", config)
       Cookies.remove('refreshToken');
       setUser(null);
@@ -33,6 +35,7 @@ const Profile = ({user, setUser}) => {
   }
 
   return (
+    <div className="section1">
     <div className="profile-container">
       <div className="profile-header">
         <h1>Profile</h1>
@@ -59,6 +62,7 @@ const Profile = ({user, setUser}) => {
           <strong>Address:</strong> <span>{userData.address}</span>
         </div>
       </div>
+    </div>
     </div>
   );
 };
