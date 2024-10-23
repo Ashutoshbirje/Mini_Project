@@ -1,14 +1,14 @@
 import React from 'react';
-import './Profile.css'; // Add CSS styling
+import './Profile.css'; 
 import axios from 'axios';
-// import Cookies from "js-cookie"
 import { useNavigate } from 'react-router-dom';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Profile = ({user, setUser}) => {
   const userData = {
     // use login sign up data instead of hard code
-    name: 'John Doe',
-    email: 'johndoe@example.com',
+    name: user?.name || "Guest", // Fallback to 'Guest' if name is unavailable
+    email: user?.email || "Not provided", // Fallback if email is missing
   };
   const navigate = useNavigate()
 
@@ -52,12 +52,15 @@ const handleLogout = async () => {
         </div>
       </div>
       <div className="profile-details">
-        <div className="profile-field">
-          <strong>Name:</strong> <span>{userData.name}</span>
+        <div className="userIcon1">
+           <i className="fas fa-user"></i>
         </div>
         <div className="profile-field">
-          <strong>Email:</strong> <span>{userData.email}</span>
+          <strong>{userData.name}</strong>
         </div>
+        {/* <div className="profile-field">
+          <strong>{userData.email}</strong>
+        </div> */}
       </div>
     </div>
     </div>

@@ -46,10 +46,15 @@
   }
   
   .profile-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-top: 20px;
   }
   
   .profile-field {
+    margin-top: 15px;
     margin-bottom: 10px;
   }
   
@@ -58,3 +63,19 @@
     color: #333;
   }
   
+  .userIcon1 {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Makes the icon circular */
+    background-color:  #91c7de;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .userIcon1 i {
+    color: white;
+    font-size: 5.5rem;
+  }
