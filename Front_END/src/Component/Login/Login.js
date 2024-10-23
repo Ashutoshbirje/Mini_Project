@@ -7,6 +7,7 @@ import Cookies from "js-cookie"
 const Login = ({ setUser }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
   const navigate = useNavigate();
 
   // Load user credentials from localStorage if available
@@ -20,20 +21,26 @@ const Login = ({ setUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Email:', email, 'Password:', password);
+    console.log('Email:', email, 'Password:', password, "Username : ",username);
 
     const config = {
       headers: { "Content-Type": "application/json" },
     };
 
+    // const username = "viki";
+    console.log(username);
+    
+
     try {
+      
       const res = await axios.post(
         `http://localhost:5000/api/v1/user/login`, 
-        { email, password }, 
+        { email, password ,username }, 
         config
       );
+      // console.log(res);
+      
       setUser(res.data.data);
-      console.log(res.data.data);
       Cookies.set('refreshToken', res.data.data.refreshToken, { expires:7});
       navigate("/"); // Redirect on successful login
     } catch (error) {
@@ -46,7 +53,17 @@ const Login = ({ setUser }) => {
     <div className="login-container">
       <form className="login-form" onSubmit={handleSubmit}>
         <h2>Log in</h2>
-        <p>Connect with the best professionals</p>
+        <div className="form-group">
+          <label htmlFor="username">Name *</label>
+          <input 
+            type="text" 
+            id="email" 
+            placeholder="Name" 
+            value={username} 
+            onChange={(e) => setUsername(e.target.value)} 
+            required 
+          />
+        </div>
 
         <div className="form-group">
           <label htmlFor="email">E-Mail Address *</label>
@@ -70,10 +87,6 @@ const Login = ({ setUser }) => {
             onChange={(e) => setPassword(e.target.value)} 
             required 
           />
-        </div>
-
-        <div className="form-group">
-          <a href="/#" className="forgot-password">Forgot password?</a>
         </div>
 
         <button type="submit" className="btn-primary">Login</button>

@@ -10,7 +10,7 @@ dotenv.config({
 
 connectDb();
 
-app.listen(process.env.PORT || 2000, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log(`Server is working on http://localhost:${process.env.PORT}`);
 });
 

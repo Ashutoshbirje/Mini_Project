@@ -1,38 +1,46 @@
 import React from 'react';
 import './Profile.css'; // Add CSS styling
 import axios from 'axios';
-import Cookies from "js-cookie"
+// import Cookies from "js-cookie"
 import { useNavigate } from 'react-router-dom';
 
 const Profile = ({user, setUser}) => {
   const userData = {
+    // use login sign up data instead of hard code
     name: 'John Doe',
     email: 'johndoe@example.com',
-    phone: '+1234567890',
-    gender: 'Male',
-    address: '123 Street Name, City, Country'
   };
   const navigate = useNavigate()
 
-  const handleLogout = async ()=>{
-    console.log(user);
-    try {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-          'Authorization': `Bearer ${user.refreshToken}`,
-        },
-      };
 
+const handleLogout = async () => {
+  console.log("Logging out user...");
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+        'Authorization': `Bearer ${user.refreshToken}`, // Optional if stored in state
+        withCredentials: true, // Ensures cookies are sent with the request
+      },
+    };
 
-      axios.get("http://localhost:4000/api/v1/user/logout", config)
-      Cookies.remove('refreshToken');
-      setUser(null);
-      navigate("/")
-    } catch (error) {
-      console.log(error);
-}
+    // Call the logout API
+    const result = await axios.post("http://localhost:5000/api/v1/user/logout", config);
+    console.log(result)
+    // http://localhost:5000/api/v1/users/logout
+    sessionStorage.clear()
+    localStorage.clear()
+
+    // Optional: Remove cookies manually if required
+    // Cookies.remove('refreshToken');
+    // Cookies.remove('accessToken');
+
+    setUser(null); // Clear user state
+    navigate("/"); // Redirect to home or login page
+  } catch (error) {
+    console.error("Error during logout:", error);
   }
+};
 
   return (
     <div className="section1">
@@ -40,26 +48,15 @@ const Profile = ({user, setUser}) => {
       <div className="profile-header">
         <h1>Profile</h1>
         <div className="profile-actions">
-          {/* <button className="edit-btn">Edit</button> */}
           <button className="logout-btn" onClick={handleLogout}>Logout</button>
         </div>
       </div>
-
       <div className="profile-details">
         <div className="profile-field">
           <strong>Name:</strong> <span>{userData.name}</span>
         </div>
         <div className="profile-field">
           <strong>Email:</strong> <span>{userData.email}</span>
-        </div>
-        <div className="profile-field">
-          <strong>Phone:</strong> <span>{userData.phone}</span>
-        </div>
-        <div className="profile-field">
-          <strong>Gender:</strong> <span>{userData.gender}</span>
-        </div>
-        <div className="profile-field">
-          <strong>Address:</strong> <span>{userData.address}</span>
         </div>
       </div>
     </div>

@@ -3,8 +3,7 @@ import ApiError from "../utils/ApiError.js"
 import { User} from "../models/user.models.js"
 import ApiResponse  from "../utils/ApiResponse.js";
 import jwt from "jsonwebtoken"
-import mongoose from "mongoose";
-
+// import mongoose from "mongoose";
 
 const generateAccessAndRefereshTokens = async(userId) =>{
     try {
@@ -67,6 +66,7 @@ const loginUser = asyncHandler(async (req, res) =>{
     //send cookie
 
     const {email, username, password} = req.body
+    console.log(email , username, password);
     // console.log(email);
 
     if (!username && !email) {
@@ -101,10 +101,11 @@ const loginUser = asyncHandler(async (req, res) =>{
         httpOnly: true,
         secure: true
     }
-
+    
     return res
     .status(200)
     .cookie("refreshToken", refreshToken, options)
+    .cookie("accessToken",accessToken, options)
     .json(
         new ApiResponse(
             200, 
@@ -117,30 +118,37 @@ const loginUser = asyncHandler(async (req, res) =>{
 
 })
 
-const logoutUser = asyncHandler(async(req, res) => {
-    await User.findByIdAndUpdate(
-        req.user._id,
-        {
-            $unset: {
-                refreshToken: 1 // this removes the field from document
-            }
-        },
-        {
-            new: true
-        }
-    )
+const logoutUser = asyncHandler(async (req, res) => {
+    console.log("Before DB call");
+    
+    // // Remove refresh token from the user document
+    // await User.findByIdAndUpdate(
+    //     req.user._id,
+    //     { $unset: { refreshToken: 1 } }, // Unset removes the field
+    //     { new: true }
+    // );
+
+    // console.log("After DB call");
+    
 
     const options = {
         httpOnly: true,
-        secure: true
-    }
+        secure: false,  // Ensure this is true in production (HTTPS)
+        sameSite: 'none', // Add sameSite for cookie security
+        // expires: new Date(0), // Expire the cookie immediately
+    };
 
+    console.log(options);
+    
+
+    // Clear the cookies by setting them with expired date
     return res
-    .status(200)
-    .clearCookie("accessToken", options)
-    .clearCookie("refreshToken", options)
-    .json(new ApiResponse(200, {}, "User logged Out"))
-})
+        .status(200)
+        // .clearCookie("accessToken", options) REMOVED 
+        .cookie("refreshToken", "", options)
+        .json(new ApiResponse(200, {}, "User logged out successfully"));
+});
+
 
 const getUserProfile = asyncHandler(async (req, res) => {
 
