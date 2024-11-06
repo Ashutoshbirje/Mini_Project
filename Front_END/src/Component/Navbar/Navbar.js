@@ -25,8 +25,9 @@ const Navbar = ({ user, setUser }) => { // Receive user and setUser as props
               <li className="navbar-item">
                 <Link to="/">Home</Link>
               </li>
-              <li className="navbar-item">
+              <li className="navbar-item">``
                 <Link to="/About">About</Link>
+                {/* <Link to="/Admin">Admin</Link> */}
               </li>
               <li className="navbar-item dropdown">
                 <Link to="/#">Services</Link>

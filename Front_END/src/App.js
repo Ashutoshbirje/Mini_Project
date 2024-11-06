@@ -17,6 +17,7 @@ import FirstAid from "./Component/Help/First-aid/First-aid";
 import ImportantContacts from "./Component/Help/Contact/ImportantContacts";
 import Medical from "./Component/Help/Medical/medical";
 import GetAppoint from "./Component/GetAppoint/GetAppoint";
+// import Admin from "./Component/Admin/AdminPage";
 import Cookies from "js-cookie"
 import axios from 'axios';
 
@@ -73,6 +74,7 @@ function App() {
           <Route path="/services/virtual-assistant" element={<Chatbot />} />
           <Route path="/Exercise" element={<Exercise />} />
           <Route path="/Exercise/Help" element={<HelpGuide />} />
+          {/* <Route path="/Admin" element={<Admin />} /> */}
         </Routes>
       </div>
     </Router>
