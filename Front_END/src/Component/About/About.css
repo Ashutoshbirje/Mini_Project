@@ -1,9 +1,9 @@
 .about-section {
-    background-color: #f4f7fc; /* Light background for contrast */
     padding: 30px 20px;
     display: flex;
     justify-content: center;
     height: 78vh;
+    background: linear-gradient(to right, #ebf8ff, #e9d8fd);
   }
   
   .about-container {

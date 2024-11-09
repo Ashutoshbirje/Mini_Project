@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     height: 85vh;
-    background-color: #f8f9fa; /* Light background for contrast */
+    background: linear-gradient(to right, #ebf8ff, #e9d8fd);
 }
 
 .service-section {
