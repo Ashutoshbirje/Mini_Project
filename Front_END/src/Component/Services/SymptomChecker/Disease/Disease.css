@@ -14,7 +14,7 @@
 
 /* Patient info section */
 .patientInfo {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 /* Questions section styling */
@@ -24,8 +24,8 @@
 
 /* Individual question styling */
 .singleQuestion {
-  margin: 8px 0;
-  padding: 10px;
+  margin: 5px 0;
+  padding: 5px;
   background-color: #e8f5e9;
   border-radius: 8px;
 }

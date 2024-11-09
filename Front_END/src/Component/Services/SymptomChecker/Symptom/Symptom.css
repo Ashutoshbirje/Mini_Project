@@ -41,6 +41,8 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  gap:10px;
 }
 
 .symtomsListBox li {
@@ -49,6 +51,7 @@
 
 .symtomsListBox button {
   background-color: #4a90e2;
+  height: 80px;
   color: #fff;
   border: none;
   padding: 10px 16px;

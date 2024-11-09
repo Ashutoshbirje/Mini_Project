@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FaUserMd, FaPaperPlane, FaTimes } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Chatbot.css';
+import chatImage from '../../../images/Chat.png';
 
 const ArogyaSathi = () => {
     const [messages, setMessages] = useState([]);
@@ -158,6 +159,13 @@ const ArogyaSathi = () => {
                 <button onClick={handleSendMessage} className="send-button">
                     <FaPaperPlane />
                 </button>
+            </div>
+        </div>
+        <div className="chatbot-image">
+            <div className="avatar">
+            <div className="rotating-ring">
+            </div>  
+            <img src={chatImage} alt="chatbot avatar" className="avatar-image"/>          
             </div>
         </div>
         </div>
