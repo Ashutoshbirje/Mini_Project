@@ -41,7 +41,7 @@ const SignUp = ({ setUser }) => {
           <input
             type="text"
             id="name"
-            placeholder="Name"
+            placeholder="Sarthak Mahadik"
             value={name}
             onChange={(e) => setName(e.target.value)} // Updated state management
             required

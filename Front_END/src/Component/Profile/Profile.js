@@ -52,16 +52,33 @@ const handleLogout = async () => {
         </div>
       </div>
       <div className="profile-details">
-        <div className="userIcon1">
+        <div className="A">
+         <div className="userIcon1">
            <i className="fas fa-user"></i>
+         </div>
+         <div className="profile-field">
+          <strong>ArogyaSathi</strong>
+         </div>
         </div>
-        <div className="profile-field">
-          <strong>{userData.name}</strong>
+        <div className="B">
+          <div className="C">
+            <div className="profile-field2 name">
+              <strong>{userData.name}</strong>
+            </div>
+            <div className="profile-field2">
+              <strong>{userData.email}</strong>
+            </div>
+            <div className="profile-field2">
+             <strong>User</strong>
+            </div>
+          </div>
         </div>
-        {/* <div className="profile-field">
-          <strong>{userData.email}</strong>
-        </div> */}
       </div>
+
+
+
+
+
     </div>
     </div>
   );

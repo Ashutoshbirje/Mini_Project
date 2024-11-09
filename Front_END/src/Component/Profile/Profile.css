@@ -1,8 +1,8 @@
 .section1{
-  width: 100%;
+  width: 97%;
   background: linear-gradient(to right, #ebf8ff, #e9d8fd);
   padding: 20px;
-  height: 80vh;
+  height: 79vh;
 }
 
 .profile-container {
@@ -24,6 +24,7 @@
   
   .profile-header h1 {
     margin: 0;
+    color:rgb(95, 94, 94);
   }
   
   .profile-actions button {
@@ -35,24 +36,36 @@
     font-weight: bold;
   }
   
-  .edit-btn {
-    background-color: #4caf50;
-    color: white;
-  }
-  
   .logout-btn {
     background-color: #f44336;
     color: white;
   }
   
+  .logout-btn:hover {
+    background-color: #00a3ff;
+    color: white;
+  }
+  
+
   .profile-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #c5c6c7;
+    border-radius: 3px;
+    padding: 10px;
+    gap:10px;
+  }
+  
+  .A{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    width: 40%;
   }
-  
+
   .profile-field {
     margin-top: 15px;
     margin-bottom: 10px;
@@ -63,6 +76,49 @@
     color: #333;
   }
   
+  .B {
+    border-left: 2px solid #00a3ff;
+    width: 40%; /* Adjust width as needed */
+    padding-left: 10px;
+  }
+  
+  .C {
+    margin-bottom: 30px;
+    padding-left: 10px;
+  }
+
+  .profile-field2 {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 0px; /* Indentation for alignment */
+    margin-bottom: 8px; /* Space between fields */
+  }
+  
+  .profile-field2 strong {
+    display: block;
+    color: #333; /* Decent text color */
+  }
+  
+  .profile-field2:first-of-type strong {
+    font-size: 25px; /* Larger font size for the name */
+    color: #00a3ff;/* Darker color for the name */
+    font-weight: bold;
+  }
+  
+  .profile-field2:nth-of-type(2) strong {
+    font-size: 16px; /* Smaller font size for the email */
+    color: #555; /* Slightly lighter color for email */
+    font-weight: normal;
+  }
+  
+    
+  .profile-field2:nth-of-type(3) strong {
+    font-size: 16px; /* Smaller font size for the email */
+    color: #555; /* Slightly lighter color for email */
+    font-weight: normal;
+    margin-top: 3px;
+  }
+
   .userIcon1 {
     width: 150px;
     height: 150px;
