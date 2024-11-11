@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"; // Import Link and useNavigate from react-router-dom
 import './SignUp.css';
 import axios from "axios"
+import { useGoogleLogin } from '@react-oauth/google';
 
 const SignUp = ({ setUser }) => {
   const [name, setName] = useState(''); // Changed from firstName to name
@@ -9,6 +10,36 @@ const SignUp = ({ setUser }) => {
   const [password, setPassword] = useState('');
   
   const navigate = useNavigate(); // Hook to navigate programmatically
+  
+  const login = useGoogleLogin({
+    onSuccess: async (tokenResponse) => {
+      console.log('Google token:', tokenResponse);
+
+      try {
+        // Fetch user data with access token
+        const res = await axios.get('https://www.googleapis.com/oauth2/v3/userinfo', {
+          headers: {
+            Authorization: `Bearer ${tokenResponse.access_token}`,
+          },
+        });
+
+        const userData = res.data;
+        console.log('User data from Google:', userData);
+
+        // Set user data to state or pass to parent component
+        setUser(userData);
+
+        // Save user data in localStorage if required
+        localStorage.setItem('user', JSON.stringify(userData));
+
+        // Navigate to home page after login
+        navigate('/');
+      } catch (error) {
+        console.error('Error fetching Google user data:', error);
+      }
+    },
+    onError: () => alert("Google Login failed. Please try again."),
+  });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -76,7 +107,7 @@ const SignUp = ({ setUser }) => {
 
         <div className="divider">OR</div>
 
-        <button type="button" className="btn-secondary">Continue with Google</button>
+        <button type="button" className="btn-secondary" onClick={() => login()}>Continue with Google</button>
 
         <p className="sign-up-text">
           Already have an account? <Link to="/login">Login</Link> {/* Navigate to login page */}

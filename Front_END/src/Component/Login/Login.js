@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'; 
 import './Login.css';
 import axios from 'axios';
-import Cookies from "js-cookie"
+import Cookies from "js-cookie";
+import { useGoogleLogin } from '@react-oauth/google';
 
 const Login = ({ setUser }) => {
   const [email, setEmail] = useState('');
@@ -10,39 +11,62 @@ const Login = ({ setUser }) => {
   const [username, setUsername] = useState('');
   const navigate = useNavigate();
 
-  // Load user credentials from localStorage if available
+  const login = useGoogleLogin({
+    onSuccess: async (tokenResponse) => {
+      console.log('Google token:', tokenResponse);
+
+      try {
+        // Fetch user data with access token
+        const res = await axios.get('https://www.googleapis.com/oauth2/v3/userinfo', {
+          headers: {
+            Authorization: `Bearer ${tokenResponse.access_token}`,
+          },
+        });
+
+        const userData = res.data;
+        console.log('User data from Google:', userData);
+
+        // Set user data to state or pass to parent component
+        setUser(userData);
+
+        // Save user data in localStorage if required
+        localStorage.setItem('user', JSON.stringify(userData));
+
+        // Navigate to home page after login
+        navigate('/');
+      } catch (error) {
+        console.error('Error fetching Google user data:', error);
+      }
+    },
+    onError: () => alert("Google Login failed. Please try again."),
+  });
+
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem('user'));
     if (storedUser) {
-      setUser(storedUser);  // Set user state
-      navigate('/'); // Redirect to home if user is already logged in
+      setUser(storedUser);
+      navigate('/');
     }
   }, [setUser, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Email:', email, 'Password:', password, "Username : ",username);
+    console.log('Email:', email, 'Password:', password, "Username:", username);
 
     const config = {
       headers: { "Content-Type": "application/json" },
     };
 
-    // const username = "viki";
-    console.log(username);
-    
-
     try {
-      
       const res = await axios.post(
         `http://localhost:5000/api/v1/user/login`, 
-        { email, password ,username }, 
+        { email, password, username }, 
         config
       );
-      // console.log(res);
       
       setUser(res.data.data);
-      Cookies.set('refreshToken', res.data.data.refreshToken, { expires:7});
-      navigate("/"); // Redirect on successful login
+      Cookies.set('refreshToken', res.data.data.refreshToken, { expires: 7 });
+      navigate("/");
     } catch (error) {
       console.log(error);
       alert('Invalid user credentials. Please try again.');
@@ -57,7 +81,7 @@ const Login = ({ setUser }) => {
           <label htmlFor="username">Name *</label>
           <input 
             type="text" 
-            id="email" 
+            id="username" 
             placeholder="Sarthak Mahadik" 
             value={username} 
             onChange={(e) => setUsername(e.target.value)} 
@@ -93,7 +117,7 @@ const Login = ({ setUser }) => {
 
         <div className="divider">OR</div>
 
-        <button type="button" className="btn-secondary">Continue with Google</button>
+        <button type="button" className="btn-secondary" onClick={() => login()}>Continue with Google</button>
 
         <p className="sign-up-text">
           Don’t have an account? <Link to="/signup">Sign Up</Link>
