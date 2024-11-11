@@ -32,6 +32,11 @@
     font-size: 24px;
 }
 
+.header h3 {
+    color: white;
+    font-size: 30px;
+}
+
 .header .icon {
     color: white;
     margin-right: 10px;
