@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./Disease.css";
 class Disease extends Component {
-  // State
   state = {
     patientInfo: this.props.patientInfo,
     disease_with_possibility: this.props.disease_with_possibility,
@@ -33,9 +32,23 @@ class Disease extends Component {
               <div className="display-flex flex-row flex-justify flex-wrap">
                 <div className="display-flex flex-align-center titleReport">
                   <h4>{key.name}</h4>
-                  <a href={`https://en.wikipedia.org/wiki/${key.name}`} title={"wikipedia"} rel="noopener noreferrer" target="blank">
-                    help
-                  </a>
+                  <button
+  style={{
+    backgroundColor: '#4CAF50', 
+    color: 'white',             
+    padding: '8px 16px',         
+    border: 'none',             
+    borderRadius: '4px',      
+    cursor: 'pointer',           
+    textDecoration: 'none',      
+    fontSize: '14px'             
+  }}
+  onClick={() => window.open(`https://en.wikipedia.org/wiki/${key.name}`, '_blank', 'noopener noreferrer')}
+  title="Wikipedia"
+>
+  Help
+</button>
+
                 </div>
                 <div className="display-flex flex-align-center Possibility">
                   <p>

@@ -15,7 +15,7 @@
 
 /* Base styles and animations */
 .medical-services-container {
-  min-height: 100vh;
+  min-height: 75vh;
   background: linear-gradient(135deg, #f0f9ff 0%, #e6f3ff 100%);
   padding: 2rem 1rem;
 }
@@ -162,6 +162,7 @@
   display: flex;
   justify-content: space-between;
   align-items: start;
+  padding: 15px;
   margin-bottom: 1rem;
 }
 
@@ -174,6 +175,7 @@
 .service-rating {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.25rem;
 }
 
@@ -378,6 +380,10 @@
   display: flex;
   gap: 1rem;
   margin-top: 1.5rem;
+}
+
+.buttons-container a {
+  text-decoration: none;
 }
 
 .map-button,

@@ -14,8 +14,8 @@ const Help = () => {
       answer: 'Yes, we use a robust authentication system and unique MedicalIDs to ensure your data is secure and accessible only to you.'
     },
     {
-      question: 'How can I book a telemedicine consultation?',
-      answer: 'Go to the Telemedicine section, choose a doctor, and click on “Book Appointment.” You can then connect via secure video calling.'
+      question: 'How can I take a medical appointment?',
+      answer: 'Go to the GetAppoint section, choose a New Appointment, and click on “Schedule Appointment”  after filling all details.'
     },
     {
       question: 'How does the Health Risk Prediction work?',
