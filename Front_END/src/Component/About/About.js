@@ -1,6 +1,6 @@
 import React from 'react';
 import { AlertCircle, Activity, Shield, Headphones, Users, RefreshCw } from 'lucide-react';
-import './About.css';  // Import the CSS file
+import './About.css';  
 
 const About = () => {
     const features = [
